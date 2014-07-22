@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mkdir -p $CATALINA_HOME/webapps/furry-bear/
+
+cp -r -f src/java/webapp/* $CATALINA_HOME/webapps/furry-bear/
+
+cp -r -f target/classes $CATALINA_HOME/webapps/furry-bear/WEB-INF/
+
+cp -r -f lib $CATALINA_HOME/webapps/furry-bear/WEB-INF/

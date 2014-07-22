@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mkdir -p target/classes
+
+javac -encoding "UTF-8" -classpath $CATALINA_HOME/lib/servlet-api.jar -d target/classes src/java/main/com/baldurtech/*.java

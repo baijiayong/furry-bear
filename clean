@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -r -f target/*;
+rm -r -f $CATALINA_HOME\webapps\furry-bear

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+ 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                     
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  
+         version="3.0"
+ 
+         metadata-complete="true">
+
+ 
+
+    <display-name>Hello World</display-name>
+  
+    <description>
+        Welcome to Tomcat
+    </description>
+    <servlet>
+    	<servlet-name>contactServlet</servlet-name>
+	<servlet-class>com.baldurtech.ContactServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>contactServlet</servlet-name>
+	<url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+</web-app>
