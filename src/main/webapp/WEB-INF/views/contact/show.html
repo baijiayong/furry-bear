@@ -1,49 +1,61 @@
 <html>
-<head>
-	<title>show</title>
-</head>
-<body>
-	<h1 align="center">Show</h1>
-    <table align="center" border="1">
-        <tr>
-           <td>Name:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.name}"/></td>
-        </tr>
-        <tr>
-           <td>Mobile:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.mobile}"/></td>
-        </tr>
-        <tr>
-           <td>VPMN:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.vpmn}"/></td>
-        </tr>
-        <tr>
-           <td>Email:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.email}"/></td>
-        </tr>
-        <tr>
-           <td>HomeAddress</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.homeAddress}"/></td>
-        </tr>
-        <tr>
-           <td>OfficeAddress</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.officeAddress}"/></td>
-        </tr>
-        <tr>
-           <td>Job:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.job}"/></td>
-        </tr>
-        <tr>
-           <td>JobLevel:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.jobLevel}"/></td>
-        </tr>
-        <tr>
-           <td>Memo:</td>
-           <td><input th:type="text" th:name="name" th:value="${contact.memo}"/></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
-        </tr>
-    </table>
-</body>
+    <head>
+        <title>contactShow</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+        <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- /* Handle the flash message */-->
+            <th:block th:if="${message != null}">
+                <!-- /* The message code is returned from the @Controller */ -->
+                <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+            </th:block>
+            <h1 align="center">Contact Show</h1>
+            <table align="center" border="1">
+                <tr>
+                   <td>Name:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.name}"/></td>
+                </tr>
+                <tr>
+                   <td>Mobile:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.mobile}"/></td>
+                </tr>
+                <tr>
+                   <td>VPMN:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.vpmn}"/></td>
+                </tr>
+                <tr>
+                   <td>Email:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.email}"/></td>
+                </tr>
+                <tr>
+                   <td>HomeAddress</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.homeAddress}"/></td>
+                </tr>
+                <tr>
+                   <td>OfficeAddress</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.officeAddress}"/></td>
+                </tr>
+                <tr>
+                   <td>Job:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.job}"/></td>
+                </tr>
+                <tr>
+                   <td>JobLevel:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.jobLevel}"/></td>
+                </tr>
+                <tr>
+                   <td>Memo:</td>
+                   <td><input th:type="text" th:name="name" th:value="${contact.memo}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
 </html>

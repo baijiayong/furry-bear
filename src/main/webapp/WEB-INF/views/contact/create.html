@@ -16,7 +16,7 @@
             </th:block>
             <h1 align="center">Create</h1>
             <form method="post" th:action="@{/contact/save}" align="center">
-                <table align="center">
+                <table align="center" border="1">
                     <tr>
                         <td align="right">Name:</td>
                         <td><input type="text" name="name"/></td>
@@ -54,7 +54,10 @@
                         <td><input type="text" name="memo"/></td>
                     </tr>
                     <tr>
-                        <td align="center" colspan="2"><input type="submit" name="action"/></td>
+                        <td colspan="2" align="center"><input type="submit" name="action"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><a th:href="@{list}" th:text="List"></a></td>
                     </tr>
                 </table>
             </form>
