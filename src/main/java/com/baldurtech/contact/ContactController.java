@@ -33,17 +33,16 @@ public class ContactController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@RequestParam("name") String name, 
-                       @RequestParam("email") String email, 
-                       @RequestParam("mobile") String mobile,
-                       @RequestParam("vpmn") String vpmn,
-                       @RequestParam("officeAddress") String officeAddress,
-                       @RequestParam("homeAddress") String homeAddress,
-                       @RequestParam("memo") String memo,
-                       @RequestParam("job") String job,
-                       @RequestParam("jobLevel") String jobLevel,
-                       Model model
-                       ) {
+    public String save(@RequestParam("name") String name
+        , @RequestParam("email") String email
+        , @RequestParam("mobile") String mobile
+        , @RequestParam("vpmn") String vpmn
+        , @RequestParam("officeAddress") String officeAddress
+        , @RequestParam("homeAddress") String homeAddress
+        , @RequestParam("memo") String memo
+        , @RequestParam("job") String job
+        , @RequestParam("jobLevel") String jobLevel
+        , Model model ) {
         Contact contact = new Contact();
         contact.setName(name);
         contact.setEmail(email);
@@ -55,11 +54,9 @@ public class ContactController {
         contact.setJob(job);
         contact.setJobLevel(Long.valueOf(jobLevel));
         
-        
         contactService.save(contact);
         
         model.addAttribute("contactName", contact.getName());
-        
         return "contact/save";
     }
     

@@ -57,8 +57,8 @@ public class ContactControllerTest extends WebAppConfigurationAware {
    @Test
     public void 当URI为contact_list时应该由ContactController处理() throws Exception {
         mockMvc.perform(get("/contact/list"))
-               .andExpect(view().name("contact/list"))
-               .andExpect(model().attributeExists("list"));
+            .andExpect(view().name("contact/list"))
+            .andExpect(model().attributeExists("list"));
 
     }
     
@@ -77,17 +77,17 @@ public class ContactControllerTest extends WebAppConfigurationAware {
     @Test
     public void 当URI为contact_save时应该访问save页面() throws Exception {
         mockMvc.perform(post("/contact/save")
-               .param("name",String.valueOf(contact.getName()))
-               .param("mobile", String.valueOf(contact.getMobile()))
-               .param("vpmn", String.valueOf(contact.getVpmn()))
-               .param("email", String.valueOf(contact.getEmail()))
-               .param("homeAddress", String.valueOf(contact.getHomeAddress()))
-               .param("officeAddress", String.valueOf(contact.getOfficeAddress()))
-               .param("job", String.valueOf(contact.getJob()))
-               .param("jobLevel", String.valueOf(contact.getJobLevel()))
-               .param("memo", String.valueOf(contact.getMemo())))
-               .andExpect(view().name("contact/save"))
-               .andExpect(model().attributeExists("contactName"));
+            .param("name",String.valueOf(contact.getName()))
+            .param("mobile", String.valueOf(contact.getMobile()))
+            .param("vpmn", String.valueOf(contact.getVpmn()))
+            .param("email", String.valueOf(contact.getEmail()))
+            .param("homeAddress", String.valueOf(contact.getHomeAddress()))
+            .param("officeAddress", String.valueOf(contact.getOfficeAddress()))
+            .param("job", String.valueOf(contact.getJob()))
+            .param("jobLevel", String.valueOf(contact.getJobLevel()))
+            .param("memo", String.valueOf(contact.getMemo())))
+            .andExpect(view().name("contact/save"))
+            .andExpect(model().attributeExists("contactName"));
                
     }
     
@@ -108,16 +108,16 @@ public class ContactControllerTest extends WebAppConfigurationAware {
     
     @Test
     public void 在ContactController中调用ContactService中的save方法() {
-        contactController.save(contact.getName(), 
-                               contact.getEmail(), 
-                               contact.getMobile(), 
-                               contact.getVpmn(), 
-                               contact.getOfficeAddress(),
-                               contact.getHomeAddress(), 
-                               contact.getMemo(),
-                               contact.getJob(),
-                               String.valueOf(contact.getJobLevel()),
-                               model);
+        contactController.save(contact.getName() 
+            , contact.getEmail()
+            , contact.getMobile() 
+            , contact.getVpmn()
+            , contact.getOfficeAddress()
+            , contact.getHomeAddress() 
+            , contact.getMemo()
+            , contact.getJob()
+            , String.valueOf(contact.getJobLevel())
+            , model);
         verify(contactService).save(any(Contact.class));
     }
 }
