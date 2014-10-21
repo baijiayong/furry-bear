@@ -9,59 +9,66 @@
     </head>
     <body>
         <div class="container">
-            <!-- /* Handle the flash message */-->
-            <th:block th:if="${message != null}">
-                <!-- /* The message code is returned from the @Controller */ -->
-                <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
-            </th:block>
-            <h1 align="center">Contact Show</h1>
-            <table align="center" border="1">
-                <tr>
-                   <td>Name:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.name}"/></td>
-                </tr>
-                <tr>
-                   <td>Mobile:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.mobile}"/></td>
-                </tr>
-                <tr>
-                   <td>VPMN:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.vpmn}"/></td>
-                </tr>
-                <tr>
-                   <td>Email:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.email}"/></td>
-                </tr>
-                <tr>
-                   <td>HomeAddress:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.homeAddress}"/></td>
-                </tr>
-                <tr>
-                   <td>OfficeAddress:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.officeAddress}"/></td>
-                </tr>
-                <tr>
-                   <td>Job:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.job}"/></td>
-                </tr>
-                <tr>
-                   <td>JobLevel:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.jobLevel}"/></td>
-                </tr>
-                <tr>
-                   <td>Memo:</td>
-                   <td><input th:type="text" th:name="name" th:value="${contact.memo}"/></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><a th:href="@{update}" th:text="Update"></a></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><a th:href="@{delete}" th:text="Delete"></a></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
-                </tr>
-            </table>
+        <!-- /* Handle the flash message */-->
+        <th:block th:if="${message != null}">
+            <!-- /* The message code is returned from the @Controller */ -->
+            <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+        </th:block>
+        <h1 align="center">Contact Show</h1>
+            <form  method="POST" th:action="@{update}">
+                <table align="center" border="1">
+               
+                    <tr>
+                       <td>Name:</td>
+                       <td><input type="text" name="name" th:value="${contact.name}"/></td>
+                    </tr>
+                    <tr>
+                       <td>Mobile:</td>
+                       <td><input th:type="text" th:name="mobile" th:value="${contact.mobile}"/></td>
+                    </tr>
+                    <tr>
+                       <td>VPMN:</td>
+                       <td><input th:type="text" th:name="vpmn" th:value="${contact.vpmn}"/></td>
+                    </tr>
+                    <tr>
+                       <td>Email:</td>
+                       <td><input th:type="text" th:name="email" th:value="${contact.email}"/></td>
+                    </tr>
+                    <tr>
+                       <td>HomeAddress:</td>
+                       <td><input th:type="text" th:name="homeAddress" th:value="${contact.homeAddress}"/></td>
+                    </tr>
+                    <tr>
+                       <td>OfficeAddress:</td>
+                       <td><input th:type="text" th:name="officeAddress" th:value="${contact.officeAddress}"/></td>
+                    </tr>
+                    <tr>
+                       <td>Job:</td>
+                       <td><input th:type="text" th:name="job" th:value="${contact.job}"/></td>
+                    </tr>
+                    <tr>
+                       <td>JobLevel:</td>
+                       <td><input th:type="text" th:name="jobLevel" th:value="${contact.jobLevel}"/></td>
+                    </tr>
+                    <tr>
+                       <td>Memo:</td>
+                       <td><input th:type="text" th:name="memo" th:value="${contact.memo}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="action" value="Update"/>
+                            <input type="hidden" name="id" th:value="${contact.id}"/>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" name="action" value="Delete"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </body>
 </html>

@@ -65,4 +65,10 @@ public class ContactController {
         model.addAttribute("contact", contactService.show(Long.valueOf(id)));
         return "contact/show";
     } 
+   
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@RequestParam(value="id", required=false, defaultValue="") String id
+        ,@RequestParam(value = "name", required=false, defaultValue="")String name) {
+        return "contact/update";
+    }
 }
