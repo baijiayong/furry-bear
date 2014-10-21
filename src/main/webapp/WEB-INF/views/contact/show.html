@@ -33,11 +33,11 @@
                    <td><input th:type="text" th:name="name" th:value="${contact.email}"/></td>
                 </tr>
                 <tr>
-                   <td>HomeAddress</td>
+                   <td>HomeAddress:</td>
                    <td><input th:type="text" th:name="name" th:value="${contact.homeAddress}"/></td>
                 </tr>
                 <tr>
-                   <td>OfficeAddress</td>
+                   <td>OfficeAddress:</td>
                    <td><input th:type="text" th:name="name" th:value="${contact.officeAddress}"/></td>
                 </tr>
                 <tr>
@@ -51,6 +51,12 @@
                 <tr>
                    <td>Memo:</td>
                    <td><input th:type="text" th:name="name" th:value="${contact.memo}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><a th:href="@{update}" th:text="Update"></a></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><a th:href="@{delete}" th:text="Delete"></a></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
