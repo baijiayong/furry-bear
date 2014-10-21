@@ -39,4 +39,8 @@ public class ContactRepository {
     public void save(Contact contact) {
 		entityManager.persist(contact);
     }
+    
+    public Contact update(Contact contact) {
+        return entityManager.merge(contact);
+    }
 }

@@ -30,6 +30,6 @@ public class ContactService {
     }
     
     public Contact update(Contact contact) {
-        return contact;
+        return contactRepository.update(contact);
     }
 }
