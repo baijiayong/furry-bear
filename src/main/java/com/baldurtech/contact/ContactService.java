@@ -32,4 +32,8 @@ public class ContactService {
     public Contact update(Contact contact) {
         return contactRepository.update(contact);
     }
+    
+    public void delete(Contact contact) {
+        
+    }
 }
