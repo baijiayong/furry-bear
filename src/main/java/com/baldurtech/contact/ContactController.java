@@ -100,10 +100,7 @@ public class ContactController {
     public String delete(@RequestParam(value="id", required=false, defaultValue="") String id
         ,Model model) {
         
-        Contact contact = new Contact();
-        contact.setId(Long.valueOf(id));
-        
-        model.addAttribute("contact",contact);
+        model.addAttribute("contact",contactService.show(Long.valueOf(id)));
         return "contact/delete";
     }
 }
