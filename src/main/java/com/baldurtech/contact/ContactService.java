@@ -28,4 +28,8 @@ public class ContactService {
     public void save(Contact contact) {
         contactRepository.save(contact);
     }
+    
+    public Contact update(Contact contact) {
+        return contact;
+    }
 }

@@ -92,7 +92,7 @@ public class ContactController {
         contact.setJobLevel(Long.valueOf(jobLevel));
         contact.setMemo(memo);
         
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", contactService.update(contact));
         
         return "contact/update";
     }
