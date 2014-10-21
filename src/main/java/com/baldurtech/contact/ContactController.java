@@ -69,8 +69,31 @@ public class ContactController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@RequestParam(value="id", required=false, defaultValue="") String id
         , @RequestParam(value = "name", required=false, defaultValue="")String name
+        , @RequestParam(value = "mobile", required=false, defaultValue="")String mobile
+        , @RequestParam(value = "vpmn", required=false, defaultValue="")String vpmn
+        , @RequestParam(value = "email", required=false, defaultValue="")String email
+        , @RequestParam(value = "homeAddress", required=false, defaultValue="")String homeAddress
+        , @RequestParam(value = "officeAddress", required=false, defaultValue="")String officeAddress
+        , @RequestParam(value = "job", required=false, defaultValue="")String job
+        , @RequestParam(value = "jobLevel", required=false, defaultValue="")String jobLevel
+        , @RequestParam(value = "memo", required=false, defaultValue="")String memo
+        , String action
         , Model model) {
-        model.addAttribute("id",id);
+            
+        Contact contact = new Contact();
+        contact.setId(Long.valueOf(id));
+        contact.setName(name);
+        contact.setMobile(mobile);
+        contact.setVpmn(vpmn);
+        contact.setEmail(email);
+        contact.setHomeAddress(homeAddress);
+        contact.setOfficeAddress(officeAddress);
+        contact.setJob(job);
+        contact.setJobLevel(Long.valueOf(jobLevel));
+        contact.setMemo(memo);
+        
+        model.addAttribute("contact", contact);
+        
         return "contact/update";
     }
 }
