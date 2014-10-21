@@ -68,7 +68,9 @@ public class ContactController {
    
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@RequestParam(value="id", required=false, defaultValue="") String id
-        ,@RequestParam(value = "name", required=false, defaultValue="")String name) {
+        , @RequestParam(value = "name", required=false, defaultValue="")String name
+        , Model model) {
+        model.addAttribute("id",id);
         return "contact/update";
     }
 }
