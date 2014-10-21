@@ -93,7 +93,17 @@ public class ContactController {
         contact.setMemo(memo);
         
         model.addAttribute("contact", contactService.update(contact));
-        
         return "contact/update";
+    }
+    
+    @RequestMapping(value = "/delete", method = RequestMethod.POST) 
+    public String delete(@RequestParam(value="id", required=false, defaultValue="") String id
+        ,Model model) {
+        
+        Contact contact = new Contact();
+        contact.setId(Long.valueOf(id));
+        
+        model.addAttribute("contact",contact);
+        return "contact/delete";
     }
 }

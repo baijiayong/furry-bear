@@ -15,9 +15,8 @@
             <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
         </th:block>
         <h1 align="center">Contact Show</h1>
-            <form  method="POST" th:action="@{update}">
-                <table align="center" border="1">
-               
+            <table align="center" border="1">
+                <form  method="POST" th:action="@{update}">
                     <tr>
                        <td>Name:</td>
                        <td><input type="text" name="name" th:value="${contact.name}"/></td>
@@ -60,15 +59,20 @@
                             <input type="hidden" name="id" th:value="${contact.id}"/>
                         </td>
                     </tr>
-                
+                </form>
+                <form method="POST" th:action="delete">
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" name="action" value="Delete"/></td>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="action" value="Delete"/>
+                            <input type="hidden" name="id" th:value="${contact.id}"/>
+                        </td>
                     </tr>
+                </form>
                     <tr>
                         <td colspan="2" align="center"><a th:href="@{list}" th:text="Return"></a></td>
                     </tr>
-                </table>
-            </form>
+                
+            </table>
         </div>
     </body>
 </html>
