@@ -21,12 +21,14 @@
                     <th>Mobile</th>
                     <th>Vpmn</th>
                     <th>Address</th>
+                    <th>Operation</th>
                 </tr>
                 <tr th:each="contact : ${list}">
                     <td><a th:href="@{'show?id=' + ${contact.id}}" th:text="${contact.name}"></a></td>
                     <td th:text="${contact.mobile}"></td>
                     <td th:text="${contact.vpmn}"></td>
                     <td th:text="${contact.homeAddress}"></td>
+                    <td><a th:href="@{'show?id=' + ${contact.id}}" th:text="Edit"></a></td>
                 </tr>         
             </table>       
         </div>
