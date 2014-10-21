@@ -104,7 +104,7 @@ public class ContactController {
         
         model.addAttribute("contact",contactService.show(contact.getId()));
         
-        contactService.delete(contact);
+        contactService.delete(contactService.show(contact.getId()));
         
         return "contact/delete";
     }

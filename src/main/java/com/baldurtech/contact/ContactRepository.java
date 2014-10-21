@@ -43,4 +43,9 @@ public class ContactRepository {
     public Contact update(Contact contact) {
         return entityManager.merge(contact);
     }
+    
+    public void delete(Contact contact) {
+        contact = entityManager.find(Contact.class, contact.getId());
+        entityManager.remove(contact);
+    }
 }
